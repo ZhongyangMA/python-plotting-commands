@@ -3,6 +3,9 @@ import csv
 import matplotlib.pyplot as plt
 import numpy as np
 
+import matplotlib
+print(matplotlib.matplotlib_fname())  # 查找字体路径
+
 score_arr_total = []
 score_arr_meet = []
 num_total = 0
@@ -19,6 +22,7 @@ num_meet_4 = 0
 num_meet_5 = 0
 c1_clues = csv.reader(open('data/xxx.txt', encoding='utf-8'))
 for row in c1_clues:
+    print(row)
     # total
     if(float(row[2]) > 1 and float(row[2]) < 99):
         score_arr_total.append(float(row[2]))
@@ -94,7 +98,7 @@ plt.ylabel('yyyy')       # y坐标轴标题
 plt.axis([0, 100, 0, 0.5])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
 plt.vlines([16, 30, 50, 67], 0, 1, linestyles='dashed', linewidth=0.8)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 plt.hlines(meet_ratio, 0, 100, linestyles='dotted', linewidth=0.8, color='blue')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
-plt.text(72, 0.2, 'average = 0.184', color='blue')
+plt.text(72, 0.2, 'average = -0.184', color='blue')
 xx = [10, 23, 40, 59, 78]
 # plt.plot(xx, meet_ratio_arr, 'mo:')
 plt.errorbar(xx, meet_ratio_arr, yerr=meet_ratio_error_arr, fmt='mo:', linewidth=0.8, capsize=3)  # capsize 误差棒短线的长度
