@@ -24,3 +24,10 @@ A collection of commonly used python plotting commands.
 
    找到文件中 font.serif 和 font.sans-serif 所在位置，在第一位添加 SimHei。
 
+#### 三、坐标轴上的负号显示为方块的问题
+
+1. 修改 matplotlibrc 文件：
+
+   找到文件中 axes.unicode_minus，将其值改为False。
+
+
