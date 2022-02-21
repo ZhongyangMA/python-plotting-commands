@@ -15,6 +15,8 @@ rate_arr = []
 groupNum1000 = 0
 callsSum1000 = 0
 callsSumTotal = 0
+rate065Count = 0
+rate065CallSum = 0
 for row in allianceGroupIds:
     lineNum += 1
     if (lineNum == 1):
@@ -28,6 +30,9 @@ for row in allianceGroupIds:
         groupNum1000 += 1
         callsSum1000 += float(row[2])
     callsSumTotal += float(row[2])
+    if float(row[3]) > 0.65:
+        rate065Count += 1
+        rate065CallSum += float(row[2])
 print("lineNum=", lineNum)
 
 plt.figure("图1", figsize=(12, 4))  # 创建一个图文件
@@ -82,5 +87,11 @@ plt.xscale('log')
 plt.scatter(calls_arr, rate_arr)
 plt.scatter([5375.75], [0.8925], color='red')
 plt.text(4550, 0.8, '1624', fontsize=10, color='red')
+plt.hlines([0.65, 0.65], 0, 10000, linestyles='dotted', linewidth=0.8, color='blue')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
+plt.text(1000, 0.6, 'rate 0.65', fontsize=10, color='blue')
+print("rate065Count=", rate065Count)
+print("rate065Count percent=", rate065Count / (lineNum - 1))
+print("rate065CallSum=", rate065CallSum)
+print("rate065CallSum percent=", rate065CallSum / callsSumTotal)
 
 plt.show()
