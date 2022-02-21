@@ -6,6 +6,7 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import norm
+from scipy.optimize import curve_fit
 
 allianceGroupIds = csv.reader(open('../data/alliance158groupIds.csv', encoding='utf-8'))
 lineNum = 0
@@ -36,8 +37,8 @@ plt.title("Calls Distribution")
 plt.xlabel('calls')  # x坐标轴标题
 plt.ylabel('Num.')      # y坐标轴标题
 plt.yscale('log')  ## 设置y轴为对数轴
-plt.axis([-100, 6000, 0.9, 200])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
-plt.hist(calls_arr, bins=30)
+plt.axis([-100, 6000, 0.8, 200])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
+n_calls, bins_calls, patches_calls = plt.hist(calls_arr, bins=30)
 plt.vlines([5300], 0, 2, linestyles='dashed', color='red', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 plt.text(4650, 2.5, 'gid:1624', fontsize=10, color='red')
 plt.vlines([1000], 0, 1000, linestyles='dashed', color='purple', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
@@ -48,7 +49,18 @@ print("callsSum percent=", callsSum1000 / callsSumTotal)
 plt.text(1100, 30, '> 1000', fontsize=10, color='purple')
 plt.text(1100, 20, 'gids 3.2%', fontsize=10, color='purple')
 plt.text(1100, 15, 'calls 52.9%', fontsize=10, color='purple')
+# 拟合指数分布
+def func(x, a, b, c):
+    return a * np.exp(b * x) + c
 
+y_exp_line = [func(i, 179.62, -0.0087, 0.9543) for i in bins_calls]
+plt.plot(bins_calls, y_exp_line, 'r--')
+
+#popt, pcov = curve_fit(func, bins_calls, n_calls)
+#print("a=", popt[0])
+#print("b=", popt[1])
+#y_exp_line = [func(i, popt[0], popt[1], popt[2]) for i in bins_calls]
+#plt.plot(bins_calls, y_exp_line, 'r--')
 
 # 第二个子图
 plt.subplot(1, 2, 2)  # 创建第二个子panel (行,列,第几个图)
