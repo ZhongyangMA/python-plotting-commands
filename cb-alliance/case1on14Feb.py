@@ -56,7 +56,7 @@ rate_err_arr = []
 for i in range(len(n)):
     time_arr.append(bins[i])
     rate_arr.append(100 * n1[i] / n[i])
-    rate_err_arr.append(math.sqrt(100 * n1[i] / n[i]))  # 泊松误差
+    rate_err_arr.append(10 * math.sqrt(100 * n1[i] / n[i]) / n[i])  # 泊松误差
 
 plt.plot(time_arr, rate_arr, 'mo:')
 plt.errorbar(time_arr, rate_arr, yerr=rate_err_arr, fmt='mo:', linewidth=0.8, capsize=3)  # capsize 误差棒短线的长度
