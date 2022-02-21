@@ -53,7 +53,7 @@ plt.text(1100, 15, 'calls 52.9%', fontsize=10, color='purple')
 def func(x, a, b, c):
     return a * np.exp(b * x) + c
 
-y_exp_line = [func(i, 179.62, -0.0087, 0.9543) for i in bins_calls]
+y_exp_line = [func(i, 212.1, -0.0097, 0.9543) for i in bins_calls]
 plt.plot(bins_calls, y_exp_line, 'r--')
 
 #popt, pcov = curve_fit(func, bins_calls, n_calls)
