@@ -4,7 +4,6 @@ import csv
 import time
 
 import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
 import numpy as np
 from scipy.stats import norm
 
