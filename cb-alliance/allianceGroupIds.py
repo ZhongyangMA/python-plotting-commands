@@ -38,8 +38,8 @@ plt.ylabel('Num.')      # y坐标轴标题
 plt.yscale('log')  ## 设置y轴为对数轴
 plt.axis([-100, 6000, 0.9, 200])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
 plt.hist(calls_arr, bins=30)
-plt.vlines([5375.75], 0, 2, linestyles='dashed', color='red', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.text(4700, 2.5, 'gid:1624', fontsize=10, color='red')
+plt.vlines([5300], 0, 2, linestyles='dashed', color='red', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
+plt.text(4650, 2.5, 'gid:1624', fontsize=10, color='red')
 plt.vlines([1000], 0, 1000, linestyles='dashed', color='purple', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 print("groupNum1000=", groupNum1000)
 print("groupNum percent=", groupNum1000 / (lineNum - 1))
