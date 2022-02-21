@@ -30,9 +30,9 @@ for row in allianceGroupIds:
     callsSumTotal += float(row[2])
 print("lineNum=", lineNum)
 
-plt.figure("图1", figsize=(8, 4))  # 创建一个图文件
+plt.figure("图1", figsize=(12, 4))  # 创建一个图文件
 # 第一个子图
-plt.subplot(1, 2, 1)  # 创建第一个子panel (行,列,第几个图)
+plt.subplot(1, 3, 1)  # 创建第一个子panel (行,列,第几个图)
 plt.title("Calls Distribution")
 plt.xlabel('calls')  # x坐标轴标题
 plt.ylabel('Num.')      # y坐标轴标题
@@ -63,7 +63,7 @@ plt.plot(bins_calls, y_exp_line, 'r--')
 #plt.plot(bins_calls, y_exp_line, 'r--')
 
 # 第二个子图
-plt.subplot(1, 2, 2)  # 创建第二个子panel (行,列,第几个图)
+plt.subplot(1, 3, 2)  # 创建第二个子panel (行,列,第几个图)
 plt.title("Rate Distribution")
 plt.xlabel('rate')  # x坐标轴标题
 plt.ylabel('Num.')      # y坐标轴标题
@@ -72,8 +72,14 @@ plt.hist(rate_arr, bins=30)
 plt.vlines([0.8925], 0, 30, linestyles='dashed', color='red', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 plt.text(0.65, 20, 'gid:1624', fontsize=10, color='red')
 
-
-
+# 第三个子图
+plt.subplot(1, 3, 3)  # 创建第三个子panel (行,列,第几个图)
+plt.title("Rate vs. Calls")
+plt.xlabel('calls')  # x坐标轴标题
+plt.ylabel('rate')      # y坐标轴标题
+plt.axis([0.6, 10000, -0.1, 1.1])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
+plt.xscale('log')
+plt.scatter(calls_arr, rate_arr)
 
 
 plt.show()
