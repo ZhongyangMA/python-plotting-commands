@@ -80,6 +80,7 @@ plt.ylabel('rate')      # y坐标轴标题
 plt.axis([0.6, 10000, -0.1, 1.1])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
 plt.xscale('log')
 plt.scatter(calls_arr, rate_arr)
-
+plt.scatter([5375.75], [0.8925], color='red')
+plt.text(4550, 0.8, '1624', fontsize=10, color='red')
 
 plt.show()
