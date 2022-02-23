@@ -43,8 +43,8 @@ plt.plot(rate, yy20, color='red')
 plt.legend(["count=5", "count=10", "count=20"])
 
 plt.vlines([0.2], -5, 2, linestyles='dashed', color='purple', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.hlines([-0.57, -0.57], 0, 1, linestyles='dashed', linewidth=1, color='purple')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
-plt.scatter([0.2], [-0.57], color='green')
-plt.text(0.4, -0.7, 'threshold = -0.57', fontsize=10, color='purple')
+plt.hlines([-0.34, -0.34], 0, 1, linestyles='dashed', linewidth=1, color='purple')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
+plt.scatter([0.2], [-0.34], color='red')
+plt.text(0.5, -0.5, 'threshold = -0.34', fontsize=10, color='purple')
 
 plt.show()
