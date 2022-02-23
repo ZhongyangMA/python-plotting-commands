@@ -96,7 +96,3 @@ print("rate065CallSum percent=", rate065CallSum / callsSumTotal)
 
 plt.show()
 
-u=10
-v=15
-sigma = math.sqrt(1 / u + 1 / v)
-print("sigma=", sigma)
