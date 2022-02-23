@@ -60,6 +60,7 @@ for i in range(len(n)):
 
 plt.plot(time_arr, rate_arr, 'mo:')
 plt.errorbar(time_arr, rate_arr, yerr=rate_err_arr, fmt='mo:', linewidth=0.8, capsize=3)  # capsize 误差棒短线的长度
+plt.hlines([0.2, 0.2], 0, 1644832221, linestyles='dashed', linewidth=1, color='blue')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
 
 # 绘制嵌入图
 plt.axes([0.2, 0.25, 0.2, 0.15])  # [左,下,宽,高] 相对于整个figure
