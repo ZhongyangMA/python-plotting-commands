@@ -35,9 +35,9 @@ plt.axis([0, 1, -3, 1])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
 rate = np.linspace(0, 1, 100)
 # 四条线
 yy40 = [item - sigma(40, item) for item in rate]
-plt.plot(rate, yy40, color='orange')
+plt.plot(rate, yy40, color='red')
 yy20 = [item - sigma(20, item) for item in rate]
-plt.plot(rate, yy20, color='red')
+plt.plot(rate, yy20, color='orange')
 yy10 = [item - sigma(10, item) for item in rate]
 plt.plot(rate, yy10, color='green')
 yy5 = [item - sigma(5, item) for item in rate]
@@ -47,8 +47,8 @@ plt.plot(rate, yy1, color='cyan')
 plt.legend(["count=40", "count=20", "count=10", "count=5", "count=1"])
 
 plt.vlines([0.2], -5, 2, linestyles='dashed', color='purple', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.hlines([-0.34, -0.34], 0, 1, linestyles='dashed', linewidth=1, color='purple')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
-plt.scatter([0.2], [-0.34], color='red')
-plt.text(0.5, -0.5, 'threshold = -0.34', fontsize=10, color='purple')
+plt.hlines([-0.18, -0.18], 0, 1, linestyles='dashed', linewidth=1, color='purple')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
+plt.scatter([0.2], [-0.18], color='red')
+plt.text(0.5, -0.3, 'threshold = -0.18', fontsize=10, color='purple')
 
 plt.show()
