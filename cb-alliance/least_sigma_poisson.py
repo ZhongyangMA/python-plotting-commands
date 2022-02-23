@@ -34,6 +34,8 @@ plt.ylabel('rate-sigma')  # y坐标轴标题
 plt.axis([0, 1, -3, 1])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
 rate = np.linspace(0, 1, 100)
 # 四条线
+yy40 = [item - sigma(40, item) for item in rate]
+plt.plot(rate, yy40, color='orange')
 yy20 = [item - sigma(20, item) for item in rate]
 plt.plot(rate, yy20, color='red')
 yy10 = [item - sigma(10, item) for item in rate]
@@ -42,7 +44,7 @@ yy5 = [item - sigma(5, item) for item in rate]
 plt.plot(rate, yy5, color='blue')
 yy1 = [item - sigma(1, item) for item in rate]
 plt.plot(rate, yy1, color='cyan')
-plt.legend(["count=20", "count=10", "count=5", "count=1"])
+plt.legend(["count=40", "count=20", "count=10", "count=5", "count=1"])
 
 plt.vlines([0.2], -5, 2, linestyles='dashed', color='purple', linewidth=1)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 plt.hlines([-0.34, -0.34], 0, 1, linestyles='dashed', linewidth=1, color='purple')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
