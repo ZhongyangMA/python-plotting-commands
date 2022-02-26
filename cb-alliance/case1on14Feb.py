@@ -4,7 +4,6 @@ import csv
 import time
 
 import matplotlib.pyplot as plt
-import matplotlib.mlab as mlab
 import numpy as np
 from scipy.stats import norm
 
@@ -46,7 +45,7 @@ plt.legend(["成功数", "超时数"])
 plt.subplot(2, 1, 2)  # 创建第二个子panel (行,列,第几个图)
 plt.xlabel('timestamp in seconds')  # x坐标轴标题
 plt.ylabel('Failure Rate per 5 mins')      # y坐标轴标题
-plt.axis([1644822098, 1644832221, 0, 120])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
+plt.axis([1644822098, 1644832221, 0, 1.2])  # 设定坐标轴范围[xmin, xmax, ymin, ymax]
 
 n, bins, patches = plt.hist(time_arr_total, bins=30, alpha=0)  # 直方图 color填充颜色 ec包络线颜色
 n1, bins1, patches1 = plt.hist(time_arr_timeout, bins=30, alpha=0)  # 直方图 color填充颜色 ec包络线颜色
@@ -56,11 +55,12 @@ rate_arr = []
 rate_err_arr = []
 for i in range(len(n)):
     time_arr.append(bins[i])
-    rate_arr.append(100 * n1[i] / n[i])
-    rate_err_arr.append(math.sqrt(100 * n1[i] / n[i]))  # 泊松误差
+    rate_arr.append(n1[i] / n[i])
+    rate_err_arr.append(math.sqrt(1/n1[i] + 1/n[i]))  # 泊松误差
 
 plt.plot(time_arr, rate_arr, 'mo:')
 plt.errorbar(time_arr, rate_arr, yerr=rate_err_arr, fmt='mo:', linewidth=0.8, capsize=3)  # capsize 误差棒短线的长度
+plt.hlines([0.2, 0.2], 0, 1644832221, linestyles='dashed', linewidth=1, color='blue')  # 水平方向虚线网格([y1,y2,...], xmin, xmax)
 
 # 绘制嵌入图
 plt.axes([0.2, 0.25, 0.2, 0.15])  # [左,下,宽,高] 相对于整个figure
