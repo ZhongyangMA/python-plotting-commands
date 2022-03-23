@@ -6,7 +6,7 @@ import json
 
 # Vendor
 switch_vendor = json.load(open('../data/switch-vendor.json', encoding='utf-8'))
-vendor_threshold = 0.35
+vendor_threshold = 0.30
 vendor_total_arr = []
 vendor_above_arr = []
 vendor_below_arr = []
