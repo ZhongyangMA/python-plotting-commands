@@ -54,9 +54,9 @@ plt.hist(vendor_total_arr, bins=30)
 
 plt.text(vendor_threshold + 0.02, 80, '%.2f' % np.mean(vendor_threshold), fontsize=10, color='red')
 plt.vlines([vendor_threshold], 0, 100, color='red', linestyles='dashed')  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.text(0.28, 61, '%.2f' % np.mean(vendor_total_arr), fontsize=10, color='blue')
+plt.text(0.28, 61, '%.3f' % np.mean(vendor_total_arr), fontsize=10, color='blue')
 plt.vlines([np.mean(vendor_total_arr)], 0, 60, color='blue', linewidth=2)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.text(np.mean(vendor_below_arr) - 0.05, 61, '%.2f' % np.mean(vendor_below_arr), fontsize=10, color='green')
+plt.text(np.mean(vendor_below_arr) - 0.05, 61, '%.3f' % np.mean(vendor_below_arr), fontsize=10, color='green')
 plt.vlines([np.mean(vendor_below_arr)], 0, 60, color='green', linewidth=2)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 plt.legend(["threshold", "mean(total)", "mean(below)"])
 
@@ -70,9 +70,9 @@ plt.hist(hotel_total_arr, bins=30)
 
 plt.text(hotel_threshold + 0.02, 80, '%.2f' % np.mean(hotel_threshold), fontsize=10, color='red')
 plt.vlines([hotel_threshold], 0, 100, color='red', linestyles='dashed')  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.text(0.55, 61, '%.2f' % np.mean(hotel_total_arr), fontsize=10, color='blue')
+plt.text(0.55, 61, '%.3f' % np.mean(hotel_total_arr), fontsize=10, color='blue')
 plt.vlines([np.mean(hotel_total_arr)], 0, 60, color='blue', linewidth=2)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
-plt.text(np.mean(hotel_below_arr) - 0.05, 61, '%.2f' % np.mean(hotel_below_arr), fontsize=10, color='green')
+plt.text(np.mean(hotel_below_arr) - 0.05, 61, '%.3f' % np.mean(hotel_below_arr), fontsize=10, color='green')
 plt.vlines([np.mean(hotel_below_arr)], 0, 60, color='green', linewidth=2)  # 竖直方向虚线网格([x1,x2,...], ymin, ymax)
 plt.legend(["threshold", "mean(total)", "mean(below)"])
 
