@@ -25,7 +25,7 @@ print("vendor above count: " + str(len(vendor_above_arr)))
 
 # Hotel
 switch_hotel = json.load(open('../data/switch-hotel.json', encoding='utf-8'))
-hotel_threshold = 0.25
+hotel_threshold = 0.40
 hotel_total_arr = []
 hotel_above_arr = []
 hotel_below_arr = []
